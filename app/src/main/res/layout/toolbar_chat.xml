@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_layout_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+   <!-- <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?android:attr/actionBarSize"
+        app:theme="@style/Toolbarstyle" />
+
+    <com.markelytics.dialogs.view.TextViewRobotoCondensedRegular
+        android:id="@+id/toolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:ems="9"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/five_margin"
+        android:text="title"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />-->
+
+</RelativeLayout>

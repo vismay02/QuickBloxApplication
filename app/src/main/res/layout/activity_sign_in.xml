@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_small"
+    tools:context=".SignInActivity">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/username_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_very_large"
+            android:hint="@string/username"
+            android:inputType="textAutoComplete"
+            android:singleLine="true"
+            android:textColor="@color/black_light"
+            android:textColorHint="@color/warm_gray_two"
+            android:textSize="@dimen/text_size_large"
+            android:theme="@style/EditTextTheme"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/password_in_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_middle"
+            android:hint="@string/password"
+            android:imeOptions="actionSend"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/black_light"
+            android:textColorHint="@color/warm_gray_two"
+            android:textSize="@dimen/text_size_large"
+            android:theme="@style/EditTextTheme"
+            tools:ignore="Autofill" />
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_tags"
+            android:text="@string/sign_in" />
+
+        <TextView
+            android:id="@+id/register_user_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_email"
+            android:text="@string/sign_up" />
+    </LinearLayout>
+
+</RelativeLayout>

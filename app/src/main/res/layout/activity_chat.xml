@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_q_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity">
+<!--
+    <RelativeLayout
+        android:id="@+id/parent_qb_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:id="@+id/ll_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                android:id="@+id/txt_idi_fgd_starts_soon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/text_size_ten"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sixteeen_text_size" />
+
+            <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                android:id="@+id/txt_idi_fgd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/text_size_ten"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/sixteeen_text_size" />
+
+            <WebView
+                android:id="@+id/load_webgif"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent" />
+
+
+            <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                android:id="@+id/txt_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="@dimen/sixteen_padding"
+                android:paddingRight="@dimen/sixteen_padding"
+                android:text=""
+                android:textColor="@color/dark_black"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/rl_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp">
+
+                <include layout="@layout/toolbar_chat" />
+            </android.support.design.widget.AppBarLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_chat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?android:attr/actionBarSize">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/relative_layout_bottom"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView_chat"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                        android:id="@+id/typing_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/twentyFive_padding"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="@dimen/five_margin"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_call_dialog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                        android:id="@+id/txt_call_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/incoming_call"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="50dp"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1.5" />
+
+                        <com.markelytics.dialogs.view.RoundedImageView
+                            android:id="@+id/imageview_accept_call"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginEnd="@dimen/fab_padding"
+                            android:src="@drawable/call"
+                            app:civ_border_color="@color/call_green_color"
+                            app:civ_border_width="15dp"
+                            app:civ_fill_color="@color/call_green_color" />
+
+                        <com.markelytics.dialogs.view.RoundedImageView
+                            android:id="@+id/imageview_reject_call"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="@dimen/fab_padding"
+                            android:src="@drawable/call_end"
+                            app:civ_border_color="@color/red"
+                            app:civ_border_width="15dp"
+                            app:civ_fill_color="@color/red" />
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1.6" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/relative_layout_bottom"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginRight="@dimen/margin_small"
+                    android:layout_marginBottom="-10dp"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:id="@+id/reveal_items"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/relative_layout_bottom"
+                        android:layout_marginLeft="@dimen/margin_small"
+                        android:layout_marginRight="@dimen/margin_small"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_ten"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/margin_ten"
+                            card_view:cardElevation="2dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_ten"
+                                android:layout_marginEnd="@dimen/margin_ten"
+                                android:layout_marginBottom="@dimen/margin_ten"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="4"
+                                android:baselineAligned="false">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_camera"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:id="@+id/image"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/image_desc"
+                                        android:tint="@color/black"
+                                        app:srcCompat="@drawable/ic_camera" />
+
+                                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Camera"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/eleven_text_size" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_video"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:id="@+id/video"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/image_desc"
+                                        android:tint="@color/black"
+                                        app:srcCompat="@drawable/ic_gallery" />
+
+                                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="@string/gallery"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/eleven_text_size" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/ll_audio"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:id="@+id/audio"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/image_desc"
+                                        android:tint="@color/black"
+                                        app:srcCompat="@drawable/ic_audio" />
+
+                                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Audio"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/eleven_text_size" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/ll_file"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:id="@+id/file"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/image_desc"
+                                        android:tint="@color/black"
+                                        app:srcCompat="@drawable/ic_document" />
+
+                                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Document"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/eleven_text_size" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relative_layout_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="@dimen/margin_small"
+                    android:orientation="horizontal">
+
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="@dimen/margin_ten"
+                        android:background="@drawable/edit_text_background"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="@dimen/margin_ten"
+                        app:cardElevation="2dp"
+                        app:contentPadding="@dimen/five_padding">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:orientation="horizontal">
+
+                            <com.markelytics.callmodule.qb.view.EditTextRobotoCondensedRegular
+                                android:id="@+id/edit_text_message"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toLeftOf="@id/attachments_layout_button"
+                                android:background="@null"
+                                android:hint="@string/type_message"
+                                android:maxLines="3"
+                                android:padding="@dimen/margin_ten"
+                                android:textSize="@dimen/sixteeen_text_size" />
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/attachments_layout_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="right|center"
+                                android:layout_toLeftOf="@id/image_view_send"
+                                android:tint="@color/gray"
+                                app:srcCompat="@drawable/ic_attach_file_black_24px" />
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/image_view_send"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:contentDescription="@string/image_desc"
+                                android:tint="@color/colorPrimaryDark"
+                                app:srcCompat="@drawable/ic_send_black_24px" />
+
+                        </RelativeLayout>
+                    </android.support.v7.widget.CardView>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_unread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/relative_layout_bottom"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <com.markelytics.conference.view.TextViewRobotoCondensedRegular
+                        android:id="@+id/txt_unreadmessagecount"
+                        style="@style/DialogUnreadCounterStyle"
+                        android:layout_margin="0dp"
+                        android:layout_marginBottom="@dimen/margin_ten"
+                        android:text="ww"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
+
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/scroll_to_bottom"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="@dimen/margin_ten"
+                        android:src="@drawable/double_down"
+                        android:tint="@color/white"
+                        android:visibility="gone"
+                        app:elevation="0dp"
+                        app:fabSize="mini"
+                        app:layout_behavior="com.markelytics.callmodule.qb.view.FabAnimtion"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.7" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            &lt;!&ndash; Video calling view starts from here&ndash;&gt;
+            <RelativeLayout
+                android:id="@+id/rl_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/warm_gray"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/linear_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_small">
+
+                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Connected"
+                        android:textColor="@color/gray" />
+
+
+                    <com.markelytics.callmodule.qb.view.TextViewRobotoCondensedRegular
+                        android:id="@+id/timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textColor="@color/gray" />
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:tint="@color/warm_gray_two"
+                        app:srcCompat="@drawable/ic_message_white_24dp" />
+
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/turncamera"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/padding_small"
+                        android:tint="@color/warm_gray_two"
+                        app:srcCompat="@drawable/qb_camera_switch" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_all_video_wrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/footer_container"
+                    android:layout_below="@id/linear_header"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_opponents"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                    <RelativeLayout
+                        android:id="@+id/rl_localView_wrapper"
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true">
+
+                        <RelativeLayout
+                            android:id="@+id/localview_relative"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/margin_small">
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_audio"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/custom_cardview_orange_shadow">
+
+
+                            <ImageView
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_centerInParent="true"
+                                android:contentDescription="@string/image_desc"
+                                android:padding="10dp"
+                                android:src="@drawable/audio_icon" />
+
+                        </RelativeLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_margin="5dp"
+                            android:text="You"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/white"
+                            android:textSize="14dp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/footer_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="false"
+                        android:background="@color/warm_gray_two"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv_audio"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/image_qb_background"
+                            android:padding="@dimen/margin_middle"
+                            android:src="@drawable/video_mic_black"
+                            app:civ_border_width="10dp" />
+
+                        <com.markelytics.dialogs.view.RoundedImageView
+                            android:id="@+id/iv_end"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/call_end"
+                            app:civ_border_color="@color/red"
+                            app:civ_border_width="10dp"
+                            app:civ_fill_color="@color/red" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv_video"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/image_qb_background"
+                            android:padding="@dimen/margin_middle"
+                            app:srcCompat="@drawable/ic_video" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            &lt;!&ndash; Video calling view ends here&ndash;&gt;
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <ProgressBar
+            android:id="@+id/spin_kit_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+-->
+
+</android.support.constraint.ConstraintLayout>
